@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reverse Numbers</title>
+</head>
+<body>
+
+<script>
+    // Function to prompt the user for five numbers
+    function promptForNumbers() {
+        let numbers = [];
+
+        for (let i = 1; i <= 5; i++) {
+            let userInput = prompt(`Enter number ${i}:`);
+            let number = parseFloat(userInput);
+
+            if (!isNaN(number)) {
+                numbers.push(number);
+            } else {
+                alert('Invalid input. Please enter a valid number.');
+                i--; // Decrement i to re-prompt for the same number
+            }
+        }
+
+        return numbers;
+    }
+
+    // Function to print numbers in reverse order
+    function printReverseOrder(numbers) {
+        console.log('Numbers in reverse order:');
+        for (let i = numbers.length - 1; i >= 0; i--) {
+            console.log(numbers[i]);
+        }
+    }
+
+    // Main program
+    let userNumbers = promptForNumbers();
+    printReverseOrder(userNumbers);
+</script>
+
+</body>
+</html>

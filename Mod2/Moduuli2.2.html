@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Participant List</title>
+</head>
+<body>
+
+<script>
+    // Function to prompt the user for the number of participants
+    function getNumberOfParticipants() {
+        let numberOfParticipants = prompt('Enter the number of participants:');
+        return parseInt(numberOfParticipants);
+    }
+
+    // Function to prompt the user for participant names
+    function getParticipantNames(count) {
+        let participantNames = [];
+
+        for (let i = 1; i <= count; i++) {
+            let name = prompt(`Enter the name of participant ${i}:`);
+            participantNames.push(name);
+        }
+
+        return participantNames;
+    }
+
+    // Function to display participant names in alphabetical order
+    function displayParticipantNames(participantNames) {
+        // Sort the names alphabetically
+        participantNames.sort();
+
+        // Create an ordered list
+        let ol = document.createElement('ol');
+
+        // Populate the ordered list with participant names
+        for (let name of participantNames) {
+            let li = document.createElement('li');
+            li.textContent = name;
+            ol.appendChild(li);
+        }
+
+        // Append the ordered list to the body of the document
+        document.body.appendChild(ol);
+    }
+
+    // Main program
+    let numberOfParticipants = getNumberOfParticipants();
+    let participantNames = getParticipantNames(numberOfParticipants);
+    displayParticipantNames(participantNames);
+</script>
+
+</body>
+</html>

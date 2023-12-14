@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dog Names</title>
+</head>
+<body>
+
+<script>
+    // Function to prompt the user for dog names
+    function getDogNames() {
+        let dogNames = [];
+
+        for (let i = 1; i <= 6; i++) {
+            let name = prompt(`Enter the name of dog ${i}:`);
+            dogNames.push(name);
+        }
+
+        return dogNames;
+    }
+
+    // Function to display dog names in reverse alphabetical order
+    function displayDogNames(dogNames) {
+        // Sort the names in reverse alphabetical order
+        dogNames.sort((a, b) => b.localeCompare(a));
+
+        // Create an unordered list
+        let ul = document.createElement('ul');
+
+        // Populate the unordered list with dog names
+        for (let name of dogNames) {
+            let li = document.createElement('li');
+            li.textContent = name;
+            ul.appendChild(li);
+        }
+
+        // Append the unordered list to the body of the document
+        document.body.appendChild(ul);
+    }
+
+    // Main program
+    let dogNames = getDogNames();
+    displayDogNames(dogNames);
+</script>
+
+</body>
+</html>

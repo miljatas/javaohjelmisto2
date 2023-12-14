@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Tracker</title>
+</head>
+<body>
+
+<script>
+    // Function to prompt the user for numbers and check for duplicates
+    function trackNumbers() {
+        let numbers = [];
+        let userInput;
+
+        while (true) {
+            userInput = prompt('Enter a number (enter 0 to stop):');
+            let number = parseFloat(userInput);
+
+            if (userInput === null) {
+                // If the user cancels, exit the loop
+                break;
+            } else if (isNaN(number)) {
+                // If invalid input, prompt again
+                alert('Invalid input. Please enter a valid number.');
+            } else if (numbers.includes(number)) {
+                // If the number has already been entered, announce and exit
+                alert(`Number ${number} has already been given. Stopping operation.`);
+                break;
+            } else {
+                // Add the number to the array
+                numbers.push(number);
+            }
+        }
+
+        return numbers;
+    }
+
+    // Function to print numbers in ascending order
+    function printAscendingOrder(numbers) {
+        numbers.sort((a, b) => a - b);
+        console.log('Numbers in ascending order:');
+        console.log(numbers);
+    }
+
+    // Main program
+    let userNumbers = trackNumbers();
+    printAscendingOrder(userNumbers);
+</script>
+
+</body>
+</html>

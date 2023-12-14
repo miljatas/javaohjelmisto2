@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Dice Rolling</title>
+</head>
+<body>
+
+<script>
+    // Function to simulate a random dice roll with a given number of sides
+    function rollDice(sides) {
+        return Math.floor(Math.random() * sides) + 1;
+    }
+
+    // Main program to roll the dice until the maximum number is reached
+    function rollUntilMax() {
+        let maxNumber = parseInt(prompt('Enter the maximum number on the dice:'));
+        let rolls = [];
+        let result;
+
+        do {
+            result = rollDice(maxNumber);
+            rolls.push(result);
+        } while (result !== maxNumber);
+
+        return rolls;
+    }
+
+    // Function to display dice rolls in an unordered list
+    function displayRolls(rolls) {
+        // Create an unordered list
+        let ul = document.createElement('ul');
+
+        // Populate the unordered list with dice rolls
+        for (let roll of rolls) {
+            let li = document.createElement('li');
+            li.textContent = `Roll: ${roll}`;
+            ul.appendChild(li);
+        }
+
+        // Append the unordered list to the body of the document
+        document.body.appendChild(ul);
+    }
+
+    // Main program
+    let diceRolls = rollUntilMax();
+    displayRolls(diceRolls);
+</script>
+
+</body>
+</html>

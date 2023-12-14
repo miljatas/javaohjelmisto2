@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sorting Hat</title>
+</head>
+<body>
+
+<script>
+    // Prompt for the student's name
+    var studentName = prompt("Enter your name:");
+
+    // Draw a random value (1, 2, 3, or 4) to determine the house
+    var houseNumber = Math.floor(Math.random() * 4) + 1;
+
+    // Use a switch statement to assign a house based on the random number
+    var house;
+    switch (houseNumber) {
+        case 1:
+            house = "Gryffindor";
+            break;
+        case 2:
+            house = "Slytherin";
+            break;
+        case 3:
+            house = "Hufflepuff";
+            break;
+        case 4:
+            house = "Ravenclaw";
+            break;
+        default:
+            house = "Unknown";
+    }
+
+    // Print the result to the HTML document
+    document.write("<p>" + studentName + ", you are in " + house + ".</p>");
+</script>
+
+</body>
+</html>

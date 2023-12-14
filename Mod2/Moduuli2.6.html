@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dice Rolling</title>
+</head>
+<body>
+
+<script>
+    // Function to simulate a random dice roll between 1 and 6
+    function rollDice() {
+        return Math.floor(Math.random() * 6) + 1;
+    }
+
+    // Main program to roll the dice until the result is 6
+    function rollUntilSix() {
+        let rolls = [];
+        let result;
+
+        do {
+            result = rollDice();
+            rolls.push(result);
+        } while (result !== 6);
+
+        return rolls;
+    }
+
+    // Function to display dice rolls in an unordered list
+    function displayRolls(rolls) {
+        // Create an unordered list
+        let ul = document.createElement('ul');
+
+        // Populate the unordered list with dice rolls
+        for (let roll of rolls) {
+            let li = document.createElement('li');
+            li.textContent = `Roll: ${roll}`;
+            ul.appendChild(li);
+        }
+
+        // Append the unordered list to the body of the document
+        document.body.appendChild(ul);
+    }
+
+    // Main program
+    let diceRolls = rollUntilSix();
+    displayRolls(diceRolls);
+</script>
+
+</body>
+</html>
